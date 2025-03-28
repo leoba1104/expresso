@@ -54,15 +54,44 @@ npm run dev
 The server will be available at `http://localhost:5000/`.
 
 ## API Endpoints
-## API Endpoints
 | Method | Endpoint               | Description                              |
 |--------|------------------------|------------------------------------------|
-| GET    | `/api/heroes`          | Get a list of all heroes                 |
-| GET    | `/api/heroes/:id`      | Get a specific hero by ID                |
-| POST   | `/api/heroes`          | Add a new hero                           |
-| PUT    | `/api/heroes/:id`      | Update an existing hero by ID            |
-| DELETE | `/api/heroes/:id`      | Delete a hero by ID                      |
-| GET    | `/api/villains`        | Get a list of all villains               |
+| GET    | `/heroes`              | Get a list of all heroes                 |
+| GET    | `/heroes/:id`          | Get a specific hero by ID                |
+| POST   | `/heroes`              | Add a new hero                           |
+| PUT    | `/heroes/:id`          | Update an existing hero by ID            |
+| DELETE | `/heroes/:id`          | Delete a hero by ID                      |
+| GET    | `/villains`            | Get a list of all villains               |
+
+## Logging
+This project uses **Winston** for logging. Logs are categorized into different levels:
+- `error` (critical issues)
+- `warn` (warnings)
+- `info` (general application events)
+- `http` (HTTP requests with response times)
+- `debug` (detailed debugging information)
+
+Logs are stored in the `logs/` folder:
+- `logs/error.log`: Stores error messages.
+- `logs/all.log`: Stores all log messages.
+
+### Example Log Output:
+```
+2025-03-27 14:05:30:ms info: ✅ Connected to MongoDB
+2025-03-27 14:05:31:ms http: GET /heroes 200 - 15ms
+```
+
+## API Documentation
+The API documentation is generated using **Swagger** and can be accessed at:
+
+```
+http://localhost:5000/docs
+```
+
+### How It Works:
+- Swagger reads annotations from route files to generate interactive API docs.
+- Documentation is defined in JSDoc comments using `@swagger` tags.
+- You can test endpoints directly from the Swagger UI.
 
 ## Linting and Formatting
 To lint and format the code, run:
@@ -80,5 +109,5 @@ docker-compose down
 ```
 
 ## Contributing
-Feel free to submit issues or pull requests to improve this boilerplate!
+Feel free to submit issues or pull requests to improve this boilerplate! 🚀
 

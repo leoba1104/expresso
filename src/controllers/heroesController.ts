@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import Hero from '../models/Hero';
 
 // Controller to handle getting all heroes
-export const getHeroes = async (req: Request, res: Response): Promise<void> => {
+export const getHeroes = async (_: Request, res: Response): Promise<void> => {
     try {
         // Fetch all heroes from the database
         const heroes = await Hero.find(); // This returns all heroes in the Hero collection
@@ -16,19 +16,19 @@ export const getHeroes = async (req: Request, res: Response): Promise<void> => {
 };
 
 // Controller to handle getting a hero by ID
-export const getHeroById = async (_req: Request, _res: Response): Promise<void> => {
+export const getHeroById = async (req: Request, res: Response): Promise<void> => {
     try {
-        const heroId = _req.params.id;
+        const heroId = req.params.id;
 
         // Find hero by ID
         const hero = await Hero.findById(heroId);
 
-        if (!hero) _res.status(404).json({ message: 'Hero not found' });
+        if (!hero) res.status(404).json({ message: 'Hero not found' });
 
         // Return the found hero
-        _res.status(200).json(hero);
+        res.status(200).json(hero);
     } catch (error) {
-        _res.status(500).json({ message: 'Error fetching hero', error });
+        res.status(500).json({ message: 'Error fetching hero', error });
     }
 };
 
@@ -57,10 +57,7 @@ export const addHero = async (req: Request, res: Response): Promise<void> => {
 };
 
 // Controller to handle deleting a hero
-export const deleteHero = async (
-    req: Request,
-    res: Response
-): Promise<void> => {
+export const deleteHero = async (req: Request, res: Response): Promise<void> => {
     try {
         const heroId = req.params.id;
 
@@ -76,10 +73,11 @@ export const deleteHero = async (
 };
 
 // Controller to handle updating a hero
-export const updateHero = async (_req: Request, _res: Response) => {
+export const updateHero = async (req: Request, res: Response) => {
     try {
-        const heroId = _req.params.id;
-        const { name, universe, powers, origin, weakness, backstory } = _req.body;
+        const heroId = req.params.id;
+        const { name, universe, powers, origin, weakness, backstory } =
+            req.body;
 
         // Find hero by ID and update it with the new data
         const hero = await Hero.findByIdAndUpdate(
@@ -88,11 +86,10 @@ export const updateHero = async (_req: Request, _res: Response) => {
             { new: true } // This returns the updated hero object
         );
 
-        if (!hero) _res.status(404).json({ message: 'Hero not found' });
+        if (!hero) res.status(404).json({ message: 'Hero not found' });
 
-        _res.status(200).json({ message: 'Hero updated successfully', hero });
+        res.status(200).json({ message: 'Hero updated successfully', hero });
     } catch (error) {
-        _res.status(500).json({ message: 'Failed to update hero', error });
+        res.status(500).json({ message: 'Failed to update hero', error });
     }
 };
-
