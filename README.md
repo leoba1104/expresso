@@ -54,10 +54,16 @@ npm run dev
 The server will be available at `http://localhost:5000/`.
 
 ## API Endpoints
-| Method | Endpoint        | Description               |
-|--------|-----------------|---------------------------|
-| GET    | `/api/heroes`   | Get a list of heroes      |
-| GET    | `/api/villains` | Get a list of villains    |
+## API Endpoints
+| Method | Endpoint               | Description                              |
+|--------|------------------------|------------------------------------------|
+| GET    | `/api/heroes`          | Get a list of all heroes                 |
+| GET    | `/api/heroes/:id`      | Get a specific hero by ID                |
+| POST   | `/api/heroes`          | Add a new hero                           |
+| PUT    | `/api/heroes/:id`      | Update an existing hero by ID            |
+| DELETE | `/api/heroes/:id`      | Delete a hero by ID                      |
+| GET    | `/api/villains`        | Get a list of all villains               |
+
 ## Linting and Formatting
 To lint and format the code, run:
 

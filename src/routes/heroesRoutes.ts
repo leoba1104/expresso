@@ -4,12 +4,16 @@ import {
     addHero,
     deleteHero,
     updateHero,
+    getHeroById,
 } from '../controllers/heroesController';
 
 const router = Router();
 
-// Define the GET /heroes route
+// Define the GET heroes route
 router.get('/heroes', getHeroes);
+
+// Define the GET specific hero route
+router.get('/heroes/:id', getHeroById);
 
 // Route to add a hero
 router.post('/heroes', addHero);

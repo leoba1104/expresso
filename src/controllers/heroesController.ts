@@ -15,6 +15,23 @@ export const getHeroes = async (req: Request, res: Response): Promise<void> => {
     }
 };
 
+// Controller to handle getting a hero by ID
+export const getHeroById = async (_req: Request, _res: Response): Promise<void> => {
+    try {
+        const heroId = _req.params.id;
+
+        // Find hero by ID
+        const hero = await Hero.findById(heroId);
+
+        if (!hero) _res.status(404).json({ message: 'Hero not found' });
+
+        // Return the found hero
+        _res.status(200).json(hero);
+    } catch (error) {
+        _res.status(500).json({ message: 'Error fetching hero', error });
+    }
+};
+
 // Controller to handle adding heroes
 export const addHero = async (req: Request, res: Response): Promise<void> => {
     try {
