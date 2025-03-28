@@ -1,17 +1,18 @@
-import express from 'express';
 import dotenv from 'dotenv';
+dotenv.config();
+
+import express from 'express';
 import mongoose from 'mongoose';
 
+import authRoutes from './routes/authRoutes';
 import heroesRouter from './routes/heroesRoutes';
 import villainsRouter from './routes/villainsRoutes';
 
 import logger from './config/logger';
-import morganMiddleware from './config/morgan';
+import morganMiddleware from './middleware/morganMiddleware';
 
 import { swaggerUi, swaggerSpec } from './config/swagger';
-
-// Load environment variables from .env file
-dotenv.config();
+import authenticateToken from './middleware/authMiddleware';
 
 const app = express();
 
@@ -31,11 +32,11 @@ app.use(express.json());
 // Log requests
 app.use(morganMiddleware);
 
-app.use('/heroes', heroesRouter);
-
-app.use('/villains', villainsRouter);
-
-// Middleware to parse JSON requests
+// Public Routes
+app.use('/auth', authRoutes);
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+app.use('/heroes', authenticateToken, heroesRouter);
+app.use('/villains', authenticateToken, villainsRouter);
 
 export default app;

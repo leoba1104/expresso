@@ -23,7 +23,8 @@ Create a `.env` file in the root directory and configure the following variables
 
 ```
 MONGO_URL=mongodb://admin:secret@localhost:27017/expresso_db?authSource=admin
-PORT=5000
+PORT=3000
+JWT_SECRET=your_long_secure_random_string_here
 ```
 
 ## Running MongoDB with Docker
@@ -54,14 +55,36 @@ npm run dev
 The server will be available at `http://localhost:5000/`.
 
 ## API Endpoints
-| Method | Endpoint               | Description                              |
-|--------|------------------------|------------------------------------------|
-| GET    | `/heroes`              | Get a list of all heroes                 |
-| GET    | `/heroes/:id`          | Get a specific hero by ID                |
-| POST   | `/heroes`              | Add a new hero                           |
-| PUT    | `/heroes/:id`          | Update an existing hero by ID            |
-| DELETE | `/heroes/:id`          | Delete a hero by ID                      |
-| GET    | `/villains`            | Get a list of all villains               |
+| Method | Endpoint         | Description                       |
+|--------|------------------|-----------------------------------|
+| GET    | `/heroes`        | Get a list of all heroes          |
+| GET    | `/heroes/:id`    | Get a specific hero by ID         |
+| POST   | `/heroes`        | Add a new hero                    |
+| PUT    | `/heroes/:id`    | Update an existing hero by ID     |
+| DELETE | `/heroes/:id`    | Delete a hero by ID               |
+| GET    | `/villains`      | Get a list of all villains        |
+| POST   | `/auth/register` | Register a new User               |
+| POST   | `/auth/login`    | Login a user and get a JWT token  |
+
+## JWT Authentication
+The API uses JWT (JSON Web Token) for authentication.
+
+When a user logs in, the server generates a JWT token that can be used for authenticating subsequent requests.
+
+The `/auth/register` route is protected and requires a valid JWT token for access. Only users who have a valid token (obtained via `/auth/login`) can register new users.
+
+## Protecting Routes with JWT
+To access protected routes, include the JWT token in the Authorization header as a Bearer token. Example:
+```sh
+Authorization: Bearer <your-jwt-token>
+```
+### Example Request to Protected Route:
+```sh
+curl -H "Authorization: Bearer <your-jwt-token>" http://localhost:3000/heroes
+```
+
+## Token Expiry
+JWT tokens expire after a set time (e.g., 1 hour). You will need to log in again to obtain a new token.
 
 ## Logging
 This project uses **Winston** for logging. Logs are categorized into different levels:
@@ -85,7 +108,7 @@ Logs are stored in the `logs/` folder:
 The API documentation is generated using **Swagger** and can be accessed at:
 
 ```
-http://localhost:5000/docs
+http://localhost:3000/docs
 ```
 
 ### How It Works:

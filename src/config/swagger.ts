@@ -17,6 +17,24 @@ const swaggerDefinition = {
             name: 'Villains',
             description: 'Operations related to villains',
         },
+        {
+            name: 'Auth',
+            description: 'Operations related to Authentication',
+        }
+    ],
+    components: {
+        securitySchemes: {
+            BearerAuth: {
+                type: 'http',
+                scheme: 'bearer',
+                bearerFormat: 'JWT',
+            },
+        },
+    },
+    security: [
+        {
+            BearerAuth: [],
+        },
     ],
 };
 

@@ -16,7 +16,10 @@ export const getHeroes = async (_: Request, res: Response): Promise<void> => {
 };
 
 // Controller to handle getting a hero by ID
-export const getHeroById = async (req: Request, res: Response): Promise<void> => {
+export const getHeroById = async (
+    req: Request,
+    res: Response
+): Promise<void> => {
     try {
         const heroId = req.params.id;
 
@@ -57,7 +60,10 @@ export const addHero = async (req: Request, res: Response): Promise<void> => {
 };
 
 // Controller to handle deleting a hero
-export const deleteHero = async (req: Request, res: Response): Promise<void> => {
+export const deleteHero = async (
+    req: Request,
+    res: Response
+): Promise<void> => {
     try {
         const heroId = req.params.id;
 

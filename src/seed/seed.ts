@@ -1,7 +1,11 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import bcrypt from 'bcryptjs';
+
+import Logger from '../config/logger';
 import Hero from '../models/Hero';
 import Villain from '../models/Villain';
+import User from '../models/User';
 
 dotenv.config();
 
@@ -9,11 +13,14 @@ dotenv.config();
 mongoose
     .connect(process.env.MONGO_URL as string)
     .then(async () => {
-        console.log('Connected to MongoDB');
+        const passwordHashed = await bcrypt.hash('password', 10);
 
         // Delete existing heroes and villains
         await Hero.deleteMany({});
         await Villain.deleteMany({});
+        await  User.deleteMany({});
+
+        Logger.info('Adding Heroes');
 
         // Create some initial heroes with more data
         await Hero.create([
@@ -63,6 +70,8 @@ mongoose
                     'Diana, an Amazonian princess, fights for justice and equality.',
             },
         ]);
+
+        Logger.info('Adding Villains');
 
         // Create some initial villains with more data
         await Villain.create([
@@ -151,7 +160,17 @@ mongoose
             },
         ]);
 
-        console.log('Initial heroes and villains created!');
+        Logger.info('Adding Testing User');
+
+        // Create an Admin user
+        await User.create({
+            username: 'leobarri1104',
+            email: 'leobarri1104@outlook.com',
+            password: passwordHashed,
+            role: 'Admin'
+        })
+
+        console.log('Initial Seed Created!');
         process.exit();
     })
     .catch((error) => {
