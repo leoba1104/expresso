@@ -124,6 +124,21 @@ npm run lint
 npm run format
 ```
 
+## Running Tests
+To execute tests, run:
+
+```sh
+npm test
+```
+
+## Continuous Integration (CI/CD)
+This project uses **GitHub Actions** for continuous integration. The CI pipeline ensures that every push and pull request meets quality standards before merging.
+
+### Workflow Includes:
+- **Linting**: Ensures code quality using ESLint and Prettier.
+- **Testing**: Runs all test cases to check API functionality.
+- **Building**: Ensures the project builds successfully.
+
 ## Stopping MongoDB
 To stop the MongoDB container, run:
 
