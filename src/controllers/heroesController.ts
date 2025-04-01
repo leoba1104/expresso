@@ -8,7 +8,7 @@ export const getHeroes = async (_: Request, res: Response): Promise<void> => {
         const heroes = await Hero.find(); // This returns all heroes in the Hero collection
 
         // Return the heroes in the response
-        res.json(heroes);
+        res.status(200).json(heroes);
     } catch (error) {
         // Handle any errors that occur during the database query
         res.status(500).json({ message: 'Error fetching heroes', error });
@@ -40,6 +40,11 @@ export const addHero = async (req: Request, res: Response): Promise<void> => {
     try {
         const { name, universe, powers, origin, weakness, backstory } =
             req.body;
+
+        // Check for missing required fields
+        if (!name || !universe || !powers) {
+            res.status(400).json({ message: 'Missing required fields' });
+        }
 
         // Create new hero
         const hero = new Hero({
