@@ -20,7 +20,7 @@ const swaggerDefinition = {
         {
             name: 'Auth',
             description: 'Operations related to Authentication',
-        }
+        },
     ],
     components: {
         securitySchemes: {

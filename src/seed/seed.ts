@@ -18,7 +18,7 @@ mongoose
         // Delete existing heroes and villains
         await Hero.deleteMany({});
         await Villain.deleteMany({});
-        await  User.deleteMany({});
+        await User.deleteMany({});
 
         Logger.info('Adding Heroes');
 
@@ -167,8 +167,8 @@ mongoose
             username: 'leobarri1104',
             email: 'leobarri1104@outlook.com',
             password: passwordHashed,
-            role: 'Admin'
-        })
+            role: 'Admin',
+        });
 
         console.log('Initial Seed Created!');
         process.exit();
