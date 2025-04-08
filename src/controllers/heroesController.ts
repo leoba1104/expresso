@@ -16,10 +16,7 @@ export const getHeroes = async (_: Request, res: Response): Promise<void> => {
 };
 
 // Controller to handle getting a hero by ID
-export const getHeroById = async (
-    req: Request,
-    res: Response
-): Promise<void> => {
+export const getHeroById = async (req: Request, res: Response): Promise<void> => {
     try {
         const heroId = req.params.id;
 
@@ -38,8 +35,7 @@ export const getHeroById = async (
 // Controller to handle adding heroes
 export const addHero = async (req: Request, res: Response): Promise<void> => {
     try {
-        const { name, universe, powers, origin, weakness, backstory } =
-            req.body;
+        const { name, universe, powers, origin, weakness, backstory } = req.body;
 
         // Check for missing required fields
         if (!name || !universe || !powers) {
@@ -65,10 +61,7 @@ export const addHero = async (req: Request, res: Response): Promise<void> => {
 };
 
 // Controller to handle deleting a hero
-export const deleteHero = async (
-    req: Request,
-    res: Response
-): Promise<void> => {
+export const deleteHero = async (req: Request, res: Response): Promise<void> => {
     try {
         const heroId = req.params.id;
 
@@ -87,8 +80,7 @@ export const deleteHero = async (
 export const updateHero = async (req: Request, res: Response) => {
     try {
         const heroId = req.params.id;
-        const { name, universe, powers, origin, weakness, backstory } =
-            req.body;
+        const { name, universe, powers, origin, weakness, backstory } = req.body;
 
         // Find hero by ID and update it with the new data
         const hero = await Hero.findByIdAndUpdate(

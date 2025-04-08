@@ -1,10 +1,6 @@
-import {
-    getHeroes,
-    addHero,
-    getHeroById,
-} from '../controllers/heroesController'; // Import your controller methods
-import { mockRequest, mockResponse } from 'jest-mock-req-res'; // To mock Request/Response
-import Hero from '../models/Hero'; // The Hero model
+import { getHeroes, addHero, getHeroById } from '../controllers/heroesController';
+import { mockRequest, mockResponse } from 'jest-mock-req-res';
+import Hero from '../models/Hero';
 
 // Mock the Hero model methods
 jest.mock('../models/Hero'); // This will mock all methods of Hero
@@ -21,23 +17,17 @@ describe('Hero Controller', () => {
                     powers: ['Rasengan', 'Shadow Clone Jutsu', 'Kurama'],
                     origin: 'Hidden Leaf Village',
                     weakness: 'Rash decisions, lack of control over chakra',
-                    backstory:
-                        'Naruto is an orphan with dreams of becoming the Hokage.',
+                    backstory: 'Naruto is an orphan with dreams of becoming the Hokage.',
                     __v: 0,
                 },
                 {
                     _id: '67e70523a776082fa62ba8ea',
                     name: 'Goku',
                     universe: 'Dragon Ball',
-                    powers: [
-                        'Kamehameha',
-                        'Super Saiyan',
-                        'Instant Transmission',
-                    ],
+                    powers: ['Kamehameha', 'Super Saiyan', 'Instant Transmission'],
                     origin: 'Earth',
                     weakness: 'Naivety, overconfidence',
-                    backstory:
-                        'A Saiyan warrior sent to Earth, Goku becomes Earth’s protector.',
+                    backstory: 'A Saiyan warrior sent to Earth, Goku becomes Earth’s protector.',
                     __v: 0,
                 },
                 {
@@ -47,8 +37,7 @@ describe('Hero Controller', () => {
                     powers: ['Super Strength', 'Flight', 'Lasso of Truth'],
                     origin: 'Themyscira',
                     weakness: 'Bound by the Lasso of Truth',
-                    backstory:
-                        'Diana, an Amazonian princess, fights for justice and equality.',
+                    backstory: 'Diana, an Amazonian princess, fights for justice and equality.',
                     __v: 0,
                 },
                 {
@@ -96,8 +85,7 @@ describe('Hero Controller', () => {
                         ]),
                         origin: 'Hidden Leaf Village',
                         weakness: 'Rash decisions, lack of control over chakra',
-                        backstory:
-                            'Naruto is an orphan with dreams of becoming the Hokage.',
+                        backstory: 'Naruto is an orphan with dreams of becoming the Hokage.',
                     }),
                     expect.objectContaining({
                         _id: expect.any(String),
@@ -124,8 +112,7 @@ describe('Hero Controller', () => {
                         ]),
                         origin: 'Themyscira',
                         weakness: 'Bound by the Lasso of Truth',
-                        backstory:
-                            'Diana, an Amazonian princess, fights for justice and equality.',
+                        backstory: 'Diana, an Amazonian princess, fights for justice and equality.',
                     }),
                     expect.objectContaining({
                         _id: expect.any(String),
@@ -150,8 +137,7 @@ describe('Hero Controller', () => {
                             'Genius-level intellect',
                         ]),
                         origin: 'Malibu, California',
-                        weakness:
-                            'His heart condition and dependence on the suit',
+                        weakness: 'His heart condition and dependence on the suit',
                         backstory:
                             'Tony Stark is a genius inventor who creates a suit of armor to escape captivity.',
                     }),
@@ -161,9 +147,7 @@ describe('Hero Controller', () => {
 
         it('should return an error if the database call fails', async () => {
             // Simulate an error during Hero.find()
-            Hero.find = jest
-                .fn()
-                .mockRejectedValue(new Error('Database error'));
+            Hero.find = jest.fn().mockRejectedValue(new Error('Database error'));
 
             const req = mockRequest();
             const res = mockResponse();
@@ -187,8 +171,7 @@ describe('Hero Controller', () => {
                 powers: ['Rasengan', 'Shadow Clone Jutsu', 'Kurama'],
                 origin: 'Hidden Leaf Village',
                 weakness: 'Rash decisions, lack of control over chakra',
-                backstory:
-                    'Naruto is an orphan with dreams of becoming the Hokage.',
+                backstory: 'Naruto is an orphan with dreams of becoming the Hokage.',
                 __v: 0,
             };
 
@@ -232,8 +215,7 @@ describe('Hero Controller', () => {
                 powers: ['Martial Arts', 'Gadgets', 'Intellect'],
                 origin: 'Gotham City',
                 weakness: 'No superpowers',
-                backstory:
-                    'Bruce Wayne fights crime as Batman using his intelligence and wealth.',
+                backstory: 'Bruce Wayne fights crime as Batman using his intelligence and wealth.',
             };
 
             // Mock Hero.create() to return the mock hero
@@ -268,9 +250,7 @@ describe('Hero Controller', () => {
         });
 
         it('should return 500 if there is a database error', async () => {
-            Hero.prototype.save = jest
-                .fn()
-                .mockRejectedValue(new Error('Database error'));
+            Hero.prototype.save = jest.fn().mockRejectedValue(new Error('Database error'));
 
             const req = mockRequest({
                 body: {
@@ -279,8 +259,7 @@ describe('Hero Controller', () => {
                     powers: ['Flight', 'Super Strength', 'Laser Vision'],
                     origin: 'Krypton',
                     weakness: 'Kryptonite',
-                    backstory:
-                        'Sent to Earth as a baby, Clark Kent grows up to be Superman.',
+                    backstory: 'Sent to Earth as a baby, Clark Kent grows up to be Superman.',
                 },
             });
             const res = mockResponse();

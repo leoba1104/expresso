@@ -29,13 +29,9 @@ export const loginUser = async (req: Request, res: Response): Promise<void> => {
         }
 
         // Generate JWT
-        const token = jwt.sign(
-            { userId: user._id, role: user.role },
-            JWT_SECRET,
-            {
-                expiresIn: '1h',
-            }
-        );
+        const token = jwt.sign({ userId: user._id, role: user.role }, JWT_SECRET, {
+            expiresIn: '1h',
+        });
 
         res.json({
             message: 'Login successful',
@@ -46,10 +42,7 @@ export const loginUser = async (req: Request, res: Response): Promise<void> => {
     }
 };
 
-export const registerUser = async (
-    req: Request,
-    res: Response
-): Promise<void> => {
+export const registerUser = async (req: Request, res: Response): Promise<void> => {
     try {
         const { username, email, password } = req.body;
 

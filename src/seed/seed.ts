@@ -30,8 +30,7 @@ mongoose
                 powers: ['Rasengan', 'Shadow Clone Jutsu', 'Kurama'],
                 origin: 'Hidden Leaf Village',
                 weakness: 'Rash decisions, lack of control over chakra',
-                backstory:
-                    'Naruto is an orphan with dreams of becoming the Hokage.',
+                backstory: 'Naruto is an orphan with dreams of becoming the Hokage.',
             },
             {
                 name: 'Spider-Man',
@@ -57,8 +56,7 @@ mongoose
                 powers: ['Kamehameha', 'Super Saiyan', 'Instant Transmission'],
                 origin: 'Earth',
                 weakness: 'Naivety, overconfidence',
-                backstory:
-                    'A Saiyan warrior sent to Earth, Goku becomes Earth’s protector.',
+                backstory: 'A Saiyan warrior sent to Earth, Goku becomes Earth’s protector.',
             },
             {
                 name: 'Wonder Woman',
@@ -66,8 +64,7 @@ mongoose
                 powers: ['Super Strength', 'Flight', 'Lasso of Truth'],
                 origin: 'Themyscira',
                 weakness: 'Bound by the Lasso of Truth',
-                backstory:
-                    'Diana, an Amazonian princess, fights for justice and equality.',
+                backstory: 'Diana, an Amazonian princess, fights for justice and equality.',
             },
         ]);
 
@@ -79,8 +76,7 @@ mongoose
                 name: 'Madara Uchiha',
                 universe: 'Naruto',
                 powers: ['Susanoo', 'Rinnegan'],
-                evilPlan:
-                    'To cast the Infinite Tsukuyomi on the world and control it.',
+                evilPlan: 'To cast the Infinite Tsukuyomi on the world and control it.',
                 rival: 'Hashirama Senju',
                 motivation: 'Revenge on the world that betrayed him.',
                 backstory:
@@ -90,44 +86,28 @@ mongoose
                 name: 'Green Goblin',
                 universe: 'Marvel',
                 powers: ['Super Strength', 'Goblin Glider'],
-                evilPlan:
-                    'To destroy Spider-Man and prove he is the superior genius.',
+                evilPlan: 'To destroy Spider-Man and prove he is the superior genius.',
                 rival: 'Spider-Man',
-                motivation:
-                    'Jealousy of Spider-Man’s success and anger over the death of his son.',
-                backstory:
-                    'Norman Osborn becomes the Green Goblin after a failed experiment.',
+                motivation: 'Jealousy of Spider-Man’s success and anger over the death of his son.',
+                backstory: 'Norman Osborn becomes the Green Goblin after a failed experiment.',
             },
             {
                 name: 'Darth Vader',
                 universe: 'Star Wars',
-                powers: [
-                    'Force abilities',
-                    'Lightsaber combat',
-                    'Enhanced strength',
-                ],
-                evilPlan:
-                    'To destroy the Rebel Alliance and control the galaxy.',
+                powers: ['Force abilities', 'Lightsaber combat', 'Enhanced strength'],
+                evilPlan: 'To destroy the Rebel Alliance and control the galaxy.',
                 rival: 'Obi-Wan Kenobi, Luke Skywalker',
-                motivation:
-                    'Revenge for the death of his wife, power, and control.',
+                motivation: 'Revenge for the death of his wife, power, and control.',
                 backstory:
                     'Once a Jedi Knight, Anakin Skywalker turned to the dark side and became Darth Vader after a tragic turn of events.',
             },
             {
                 name: 'Frieza',
                 universe: 'Dragon Ball Z',
-                powers: [
-                    'Energy blasts',
-                    'Extreme durability',
-                    'Flight',
-                    'Transformation',
-                ],
-                evilPlan:
-                    'To conquer the universe and destroy any who oppose him.',
+                powers: ['Energy blasts', 'Extreme durability', 'Flight', 'Transformation'],
+                evilPlan: 'To conquer the universe and destroy any who oppose him.',
                 rival: 'Goku',
-                motivation:
-                    'To prove his superiority and dominate the universe.',
+                motivation: 'To prove his superiority and dominate the universe.',
                 backstory:
                     'Frieza is one of the most powerful beings in the universe, feared for his cruelty and desire for galactic conquest.',
             },
@@ -137,21 +117,15 @@ mongoose
                 powers: ['God-like strength', 'Illusion creation', 'Magic'],
                 evilPlan: 'To rule Earth and gain ultimate power.',
                 rival: 'Thor',
-                motivation:
-                    'Desire for power, resentment toward his brother Thor.',
+                motivation: 'Desire for power, resentment toward his brother Thor.',
                 backstory:
                     'Adopted son of Odin, Loki constantly seeks to overthrow his brother Thor and take control of the Nine Realms.',
             },
             {
                 name: 'Shredder',
                 universe: 'Teenage Mutant Ninja Turtles',
-                powers: [
-                    'Expert martial artist',
-                    'Enhanced strength',
-                    'Strategic mastermind',
-                ],
-                evilPlan:
-                    'To conquer New York City and defeat the Teenage Mutant Ninja Turtles.',
+                powers: ['Expert martial artist', 'Enhanced strength', 'Strategic mastermind'],
+                evilPlan: 'To conquer New York City and defeat the Teenage Mutant Ninja Turtles.',
                 rival: 'The Teenage Mutant Ninja Turtles',
                 motivation:
                     'Power, domination, and revenge on the Turtles for interfering with his plans.',

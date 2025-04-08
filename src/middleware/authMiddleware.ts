@@ -13,11 +13,7 @@ export interface AuthenticatedRequest extends Request {
 }
 
 // Middleware to check JWT
-const authenticateToken = (
-    req: Request,
-    res: Response,
-    next: NextFunction
-): void => {
+const authenticateToken = (req: Request, res: Response, next: NextFunction): void => {
     const token = req.header('Authorization')?.replace('Bearer ', '');
 
     if (!token) {
