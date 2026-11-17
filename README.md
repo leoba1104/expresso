@@ -1,7 +1,22 @@
-# Expresso
+# Expresso ☕
 
-## Overview
-This is a boilerplate for building REST APIs using Express, TypeScript, and MongoDB. It includes basic configurations, database setup, and a simple structure to start quickly.
+> Because setting up an Express API shouldn't be a slow cook.
+
+A production-minded boilerplate for building REST APIs with **Express, TypeScript and MongoDB**, with a sample heroes/villains domain so you can see every layer working.
+
+## Features
+
+- **TypeScript** Express app with a layered structure (routes → controllers → models)
+- **MongoDB** via Mongoose, with Docker Compose for local development and a seed script
+- **JWT authentication** with bcrypt password hashing and role-based middleware
+- **Swagger / OpenAPI** docs generated from JSDoc annotations (`/docs`)
+- **Winston + Morgan** structured logging to console and files
+- **Jest** tests, **ESLint + Prettier**
+- **GitHub Actions** CI on every push and pull request
+
+## Tech stack
+
+Node.js · Express 4 · TypeScript · MongoDB / Mongoose · JWT · Swagger · Winston · Jest · Docker · GitHub Actions
 
 ## Prerequisites
 Make sure you have the following installed:
@@ -13,8 +28,8 @@ Make sure you have the following installed:
 Clone the repository and install dependencies:
 
 ```sh
-git clone <repo-url>
-cd <repo-folder>
+git clone https://github.com/leoba1104/expresso.git
+cd expresso
 npm install
 ```
 
@@ -52,7 +67,7 @@ Start the API server:
 npm run dev
 ```
 
-The server will be available at `http://localhost:5000/`.
+The server will be available at `http://localhost:3000/` (or the `PORT` you set in `.env`).
 
 ## API Endpoints
 | Method | Endpoint         | Description                       |
